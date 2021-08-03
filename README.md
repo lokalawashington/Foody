@@ -5,7 +5,7 @@ Work in Progress
 :construction: :construction: :construction:  :construction:  :construction:  :construction:  :construction:  :construction:  :construction:
 
 
-- we are using this to discuss project changes  [project]( https://github.com/orgs/opensource254/projects/4 "projects road ,map")
+- we are using this to discuss project changes  [project]( https://github.com/iFix-Hub-KE/Foody/projects/1 "projects road ,map")
 
 
  **Technology**
