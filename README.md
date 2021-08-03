@@ -1,11 +1,11 @@
 # Foody App
 ![Android Ci & FAD](https://github.com/opensource254/event254-app/workflows/Build%20&%20upload%20to%20Firebase%20App%20Distribution/badge.svg)
 
-Work in Progress
+**Work in Progress**
 :construction: :construction: :construction:  :construction:  :construction:  :construction:  :construction:  :construction:  :construction:
 
 
-- we are using this to discuss project changes  [project]( https://github.com/iFix-Hub-KE/Foody/projects/1 "projects road ,map")
+- We are using this to discuss project changes  [Project]( https://github.com/iFix-Hub-KE/Foody/projects/1 "projects road ,map")
 
 
  **Technology**
@@ -19,7 +19,7 @@ Work in Progress
  - Safaricom Daraja API for payment processing
 
 
-### Figma Design for team Joel
+**Figma Design for team Joel**
 https://www.figma.com/file/5hMgZBX86BnrSDCWqyoBBo/Foody?node-id=0%3A1
 
 
