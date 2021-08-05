@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/THEBLESSED/AndroidStudioProjects/Foody/app/src/main/res/drawable/dashboardbackground.xml" value="0.14074074074074075" />
+        <entry key="..\:/Users/THEBLESSED/AndroidStudioProjects/Foody/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.14074074074074075" />
+        <entry key="..\:/Users/THEBLESSED/AndroidStudioProjects/Foody/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14074074074074075" />
+        <entry key="..\:/Users/THEBLESSED/AndroidStudioProjects/Foody/app/src/main/res/layout/dashboard_row.xml" value="0.2203125" />
+        <entry key="..\:/Users/THEBLESSED/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_dashboard.xml" value="0.22" />
+        <entry key="..\:/Users/THEBLESSED/AndroidStudioProjects/Foody/app/src/main/res/layout/hotel2_row.xml" value="0.2203125" />
         <entry key="app/src/main/res/drawable/ic_chevron_left_gray.xml" value="0.278125" />
         <entry key="app/src/main/res/drawable/ic_chevron_left_white.xml" value="0.278125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26197916666666665" />
