@@ -239,5 +239,5 @@
         app:layout_constraintGuide_begin="395dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@+id/order_food_quantity_add" />
 </androidx.constraintlayout.widget.ConstraintLayout>
