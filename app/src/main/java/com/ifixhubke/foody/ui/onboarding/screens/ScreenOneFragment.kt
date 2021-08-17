@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.viewpager2.widget.ViewPager2
 import com.ifixhubke.foody.R
 
 class ScreenOneFragment : Fragment() {
@@ -13,7 +14,11 @@ class ScreenOneFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_screen_one, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_screen_one, container, false)
+
+        val viewPager = view.findViewById<ViewPager2>(R.id.viewPager)
+
+        return view
     }
 }
