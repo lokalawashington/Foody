@@ -5,10 +5,11 @@
       <map>
         <entry key="..\:/Users/japie/Foody/app/src/main/res/drawable/ic_add.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/japie/Foody/app/src/main/res/drawable/ic_minus.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/japie/Foody/app/src/main/res/layout/activity_main.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/japie/Foody/app/src/main/res/layout/fragment_confirmation_custom_dialog.xml" value="0.1" />
         <entry key="..\:/Users/japie/Foody/app/src/main/res/layout/fragment_dashboard.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/japie/Foody/app/src/main/res/layout/fragment_menu.xml" value="0.18645833333333334" />
-        <entry key="..\:/Users/japie/Foody/app/src/main/res/layout/fragment_order.xml" value="0.25" />
-        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_splash.xml" value="0.22" />
+        <entry key="..\:/Users/japie/Foody/app/src/main/res/layout/fragment_order.xml" value="0.18645833333333334" />
         <entry key="app/src/main/res/drawable/ic_chevron_left_gray.xml" value="0.278125" />
         <entry key="app/src/main/res/drawable/ic_chevron_left_white.xml" value="0.278125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26197916666666665" />
