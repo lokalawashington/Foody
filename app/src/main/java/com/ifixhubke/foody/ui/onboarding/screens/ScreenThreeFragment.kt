@@ -1,29 +1,39 @@
 package com.ifixhubke.foody.ui.onboarding.screens
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.ifixhubke.foody.R
 import com.ifixhubke.foody.databinding.FragmentScreenThreeBinding
 
 class ScreenThreeFragment : Fragment() {
     private lateinit var binding: FragmentScreenThreeBinding
-    private lateinit var viewPager2: ViewPager2
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentScreenThreeBinding.inflate(inflater, container, false)
+       binding = FragmentScreenThreeBinding.inflate(inflater, container, false)
 
-        //val viewPager = view.findViewById<ViewPager2>(R.id.viewPager)
-
+        binding.buttonFinish.setOnClickListener {
+            findNavController().navigate(R.id.action_viewPagerFragment_to_dashboardFragment)
+            onBoardingFinished()
+        }
 
         return binding.root
+    }
+
+    private fun onBoardingFinished() {
+        val sharedPreferences = requireContext().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("Finished", true)
+        editor.apply()
     }
 
 }
