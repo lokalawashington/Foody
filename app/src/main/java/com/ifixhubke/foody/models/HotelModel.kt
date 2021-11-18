@@ -5,5 +5,4 @@ class HotelModel {
         val hotelImage:String?,
         val hotelName:String?
     )
-
 }
