@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/search_hotel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -42,7 +42,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            app:layout_constraintTop_toBottomOf="@+id/search_hotel" />
 
         <TextView
             android:id="@+id/textView2"
@@ -55,7 +55,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+            app:layout_constraintTop_toBottomOf="@+id/hotelRecycler" />
 
         <TextView
             android:id="@+id/textView4"
@@ -68,10 +68,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerView2" />
+            app:layout_constraintTop_toBottomOf="@+id/nearByHotelRecycler" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView2"
+            android:id="@+id/nearByHotelRecycler"
             android:layout_width="409dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
@@ -84,7 +84,7 @@
             tools:listitem="@layout/hotels_row" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/hotelRecycler"
             android:layout_width="409dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -97,6 +97,7 @@
             tools:listitem="@layout/hotels_row" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/otherHotelRecycler"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"

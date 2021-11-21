@@ -1,5 +1,6 @@
 package com.ifixhubke.foody.adapters
 
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -7,32 +8,27 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ifixhubke.foody.databinding.OtherHotelsRowBinding
-import com.ifixhubke.foody.models.HotelModel
+import com.ifixhubke.foody.models.HotelModels
 
-class OtherHotelAdapter:ListAdapter<HotelModel.HotelModelItem,OtherHotelAdapter.OtherHotelViewHolder>(Hotel2Diffutil) {
-    inner class OtherHotelViewHolder(private val binding: OtherHotelsRowBinding):RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: HotelModel.HotelModelItem?) {
-            binding.hotelName2.text=item?.hotelName
+class OtherHotelAdapter:ListAdapter<HotelModels,OtherHotelAdapter.OtherHotelViewHolder>(OtherHotelDiffutil){
+    inner class OtherHotelViewHolder(private val binding: OtherHotelsRowBinding):RecyclerView.ViewHolder(binding.root){
+        fun bind(item: HotelModels?) {
+            binding.hotelName2.text = item?.hotelName
             Glide.with(binding.hotelImage2)
-                .load("")
+                .load(item?.hotelImage)
                 .into(binding.hotelImage2)
         }
+
     }
-
-    object Hotel2Diffutil:DiffUtil.ItemCallback<HotelModel.HotelModelItem>() {
-        override fun areItemsTheSame(
-            oldItem: HotelModel.HotelModelItem,
-            newItem: HotelModel.HotelModelItem
-        ): Boolean {
-            return oldItem==newItem
+    object OtherHotelDiffutil:DiffUtil.ItemCallback<HotelModels>(){
+        override fun areItemsTheSame(oldItem: HotelModels, newItem: HotelModels): Boolean {
+            return oldItem == newItem
         }
 
-        override fun areContentsTheSame(
-            oldItem: HotelModel.HotelModelItem,
-            newItem: HotelModel.HotelModelItem
-        ): Boolean {
-            return oldItem.hotelName==newItem.hotelName
+        override fun areContentsTheSame(oldItem: HotelModels, newItem: HotelModels): Boolean {
+            return oldItem.hotelId == newItem.hotelId
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OtherHotelViewHolder {
@@ -40,7 +36,8 @@ class OtherHotelAdapter:ListAdapter<HotelModel.HotelModelItem,OtherHotelAdapter.
     }
 
     override fun onBindViewHolder(holder: OtherHotelViewHolder, position: Int) {
-        val item=getItem(position)
+        val item = getItem(position)
         holder.bind(item)
     }
+
 }
