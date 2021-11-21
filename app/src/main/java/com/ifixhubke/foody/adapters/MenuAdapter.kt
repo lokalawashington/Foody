@@ -1,5 +1,7 @@
 package com.ifixhubke.foody.adapters
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -19,6 +21,7 @@ class MenuAdapter:ListAdapter<MenuItems,MenuAdapter.MenuViewHolder>(MenuDiffUtil
             Glide.with(binding.imageViewFood)
                 .load(item?.menuImage)
                 .into(binding.imageViewFood)
+            Log.d(TAG, "menus")
         }
     }
     object MenuDiffUtil:DiffUtil.ItemCallback<MenuItems>(){
