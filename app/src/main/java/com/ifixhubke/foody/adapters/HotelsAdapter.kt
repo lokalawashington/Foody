@@ -11,7 +11,8 @@ import com.ifixhubke.foody.databinding.HotelsRowBinding
 import com.ifixhubke.foody.models.HotelModels
 
 
-class HotelsAdapter : ListAdapter<HotelModels,HotelsAdapter.HotelViewHolder>(HotelDiffutil){
+
+class HotelsAdapter(private val onClickListener: OnClickListener) : ListAdapter<HotelModels,HotelsAdapter.HotelViewHolder>(HotelDiffutil){
     inner class HotelViewHolder(private val binding: HotelsRowBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(item: HotelModels?) {
             binding.hotelName.text=item?.hotelName
@@ -39,7 +40,12 @@ class HotelsAdapter : ListAdapter<HotelModels,HotelsAdapter.HotelViewHolder>(Hot
     override fun onBindViewHolder(holder: HotelViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
-    }
 
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(item)
+        }
+    }
+    class OnClickListener(val clickListener: (hotelModel: HotelModels) -> Unit) {
+        fun onClick(hotelModel: HotelModels) = clickListener(hotelModel)}
 
 }

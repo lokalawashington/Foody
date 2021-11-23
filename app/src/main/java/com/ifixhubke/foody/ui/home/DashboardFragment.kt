@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.database.*
 import com.ifixhubke.foody.R
 import com.ifixhubke.foody.adapters.HotelsAdapter
@@ -20,9 +21,9 @@ class DashboardFragment : Fragment() {
     private lateinit var binding: FragmentDashboardBinding
 
     private lateinit var databaseReference: DatabaseReference
-    private val hotelAdopter by lazy { HotelsAdapter() }
-    private val nearHotelAdopter by lazy { HotelsAdapter() }
-    private val otherHotelAdapter by lazy { OtherHotelAdapter() }
+    private lateinit var hotelAdopter :HotelsAdapter
+    private lateinit var nearHotelAdopter :HotelsAdapter
+    private lateinit var otherHotelAdapter :OtherHotelAdapter
 
     private val hotelArrayList: ArrayList<HotelModels> = ArrayList<HotelModels>()
     private val nearhotelArrayList: ArrayList<HotelModels> = ArrayList<HotelModels>()
@@ -44,6 +45,16 @@ class DashboardFragment : Fragment() {
             }
 
         })
+        hotelAdopter = HotelsAdapter(HotelsAdapter.OnClickListener { hotel ->
+            findNavController().navigate(R.id.action_dashboardFragment_to_menuFragment)
+        })
+        nearHotelAdopter = HotelsAdapter(HotelsAdapter.OnClickListener { hotel ->
+            findNavController().navigate(R.id.action_dashboardFragment_to_menuFragment)
+        })
+        otherHotelAdapter = OtherHotelAdapter(OtherHotelAdapter.OnClickListener { hotel ->
+            findNavController().navigate(R.id.action_dashboardFragment_to_menuFragment)
+        })
+
 
         getPopularHotels()
         getNearByHotels()

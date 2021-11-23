@@ -10,7 +10,8 @@ import com.bumptech.glide.Glide
 import com.ifixhubke.foody.databinding.OtherHotelsRowBinding
 import com.ifixhubke.foody.models.HotelModels
 
-class OtherHotelAdapter:ListAdapter<HotelModels,OtherHotelAdapter.OtherHotelViewHolder>(OtherHotelDiffutil){
+
+class OtherHotelAdapter(private val onClickListener: OnClickListener):ListAdapter<HotelModels,OtherHotelAdapter.OtherHotelViewHolder>(OtherHotelDiffutil){
     inner class OtherHotelViewHolder(private val binding: OtherHotelsRowBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(item: HotelModels?) {
             binding.hotelName2.text = item?.hotelName
@@ -38,6 +39,13 @@ class OtherHotelAdapter:ListAdapter<HotelModels,OtherHotelAdapter.OtherHotelView
     override fun onBindViewHolder(holder: OtherHotelViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
+
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(item)
+        }
+
     }
+    class OnClickListener(val clickListener: (hotelModel: HotelModels) -> Unit) {
+        fun onClick(hotelModel: HotelModels) = clickListener(hotelModel)}
 
 }
