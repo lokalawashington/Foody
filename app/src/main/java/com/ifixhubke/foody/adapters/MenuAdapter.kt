@@ -4,16 +4,18 @@ import android.content.ContentValues.TAG
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ifixhubke.foody.databinding.FragmentMenuBinding
 import com.ifixhubke.foody.databinding.MenuRowBinding
+import com.ifixhubke.foody.models.HotelModels
 import com.ifixhubke.foody.models.MenuItems
 
 
-class MenuAdapter:ListAdapter<MenuItems,MenuAdapter.MenuViewHolder>(MenuDiffUtil){
+class MenuAdapter(private val onClickListener: MenuAdapter.OnClickListener):ListAdapter<MenuItems,MenuAdapter.MenuViewHolder>(MenuDiffUtil){
     inner class MenuViewHolder(private val binding: MenuRowBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(item: MenuItems?) {
             binding.textViewFoodName.text=item?.menuName
@@ -22,6 +24,10 @@ class MenuAdapter:ListAdapter<MenuItems,MenuAdapter.MenuViewHolder>(MenuDiffUtil
                 .load(item?.menuImage)
                 .into(binding.imageViewFood)
             Log.d(TAG, "menus")
+
+            binding.checkBoxFood.setOnCheckedChangeListener { compoundButton, b ->
+
+            }
         }
     }
     object MenuDiffUtil:DiffUtil.ItemCallback<MenuItems>(){
@@ -40,5 +46,11 @@ class MenuAdapter:ListAdapter<MenuItems,MenuAdapter.MenuViewHolder>(MenuDiffUtil
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         val item=getItem(position)
         holder.bind(item)
+
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(item)
+        }
     }
+    class OnClickListener(val clickListener: (menuItems: MenuItems) -> Unit) {
+        fun onClick(menuItems: MenuItems) = clickListener(menuItems)}
 }
