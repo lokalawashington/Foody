@@ -40,7 +40,11 @@
         android:id="@+id/menuFragment"
         android:name="com.ifixhubke.foody.ui.menu.MenuFragment"
         android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu" >
+        <argument
+            android:name="hotelargs"
+            app:argType="com.ifixhubke.foody.models.HotelModels" />
+    </fragment>
     <fragment
         android:id="@+id/orderFragment"
         android:name="com.ifixhubke.foody.ui.order.OrderFragment"

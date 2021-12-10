@@ -3,6 +3,7 @@ package com.ifixhubke.foody.ui.home
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,7 @@ import com.ifixhubke.foody.databinding.FragmentDashboardBinding
 import com.ifixhubke.foody.models.HotelModels
 import java.util.*
 
+private const val TAG = "DashboardFragment"
 class DashboardFragment : Fragment() {
     private lateinit var binding: FragmentDashboardBinding
 
@@ -46,13 +48,17 @@ class DashboardFragment : Fragment() {
 
         })
         hotelAdopter = HotelsAdapter(HotelsAdapter.OnClickListener { hotel ->
-            findNavController().navigate(R.id.action_dashboardFragment_to_menuFragment)
+            val action = DashboardFragmentDirections.actionDashboardFragmentToMenuFragment(hotel)
+            findNavController().navigate(action)
+            Log.d(TAG, "onCreateView: ${hotel.hotelMenu}")
         })
         nearHotelAdopter = HotelsAdapter(HotelsAdapter.OnClickListener { hotel ->
-            findNavController().navigate(R.id.action_dashboardFragment_to_menuFragment)
+            val action = DashboardFragmentDirections.actionDashboardFragmentToMenuFragment(hotel)
+            findNavController().navigate(action)
         })
         otherHotelAdapter = OtherHotelAdapter(OtherHotelAdapter.OnClickListener { hotel ->
-            findNavController().navigate(R.id.action_dashboardFragment_to_menuFragment)
+            val action = DashboardFragmentDirections.actionDashboardFragmentToMenuFragment(hotel)
+            findNavController().navigate(action)
         })
 
 
