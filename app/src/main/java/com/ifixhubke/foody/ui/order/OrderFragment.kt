@@ -7,14 +7,48 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.ifixhubke.foody.R
+import com.ifixhubke.foody.databinding.FragmentOrderBinding
 
 class OrderFragment : Fragment() {
     private lateinit var button: Button
+    private lateinit var binding : FragmentOrderBinding
+    private var tableNo = 1
+    private var foodQuantity = 1
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_order, container, false)
+        binding = FragmentOrderBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+        binding.orderFoodTableNumberMinus.setOnClickListener {
+            tableNo -= 1
+            if (tableNo>=1){
+                val tableNoMinus = tableNo
+                binding.orderTableNumber.text = tableNoMinus.toString()
+            }
+        }
+        binding.orderFoodTableNumberAdd.setOnClickListener {
+            tableNo += 1
+            val tableNoAdd = tableNo
+            binding.orderTableNumber.text = tableNoAdd.toString()
+        }
+        binding.orderFoodQuantityMinus.setOnClickListener {
+            foodQuantity -= 1
+            val toStr = foodQuantity
+            binding.orderFoodQuantity.text = toStr.toString()
+        }
+        binding.orderFoodQuantityAdd.setOnClickListener {
+            foodQuantity += 1
+            val toStr = foodQuantity
+            binding.orderFoodQuantity.text = toStr.toString()
+        }
+        binding.orderFoodBtn.setOnClickListener {
+
+        }
+
+        return view
     }
 }
