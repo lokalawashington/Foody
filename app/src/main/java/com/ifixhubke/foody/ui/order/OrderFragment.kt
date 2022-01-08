@@ -6,14 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import com.ifixhubke.foody.R
 import com.ifixhubke.foody.databinding.FragmentOrderBinding
+
 
 class OrderFragment : Fragment() {
     private lateinit var button: Button
     private lateinit var binding : FragmentOrderBinding
     private var tableNo = 1
     private var foodQuantity = 1
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,11 +25,12 @@ class OrderFragment : Fragment() {
         val view = binding.root
 
         binding.orderFoodTableNumberMinus.setOnClickListener {
-            tableNo -= 1
-            if (tableNo>=1){
-                val tableNoMinus = tableNo
-                binding.orderTableNumber.text = tableNoMinus.toString()
-            }
+           if(tableNo > 1)
+           {
+               tableNo -= 1
+           }
+            val tableNoMinus = tableNo
+            binding.orderTableNumber.text = tableNoMinus.toString()
         }
         binding.orderFoodTableNumberAdd.setOnClickListener {
             tableNo += 1
@@ -36,7 +38,9 @@ class OrderFragment : Fragment() {
             binding.orderTableNumber.text = tableNoAdd.toString()
         }
         binding.orderFoodQuantityMinus.setOnClickListener {
-            foodQuantity -= 1
+            if (foodQuantity > 1){
+                foodQuantity -= 1
+            }
             val toStr = foodQuantity
             binding.orderFoodQuantity.text = toStr.toString()
         }
@@ -46,9 +50,13 @@ class OrderFragment : Fragment() {
             binding.orderFoodQuantity.text = toStr.toString()
         }
         binding.orderFoodBtn.setOnClickListener {
+            showDialog()
 
         }
-
         return view
+    }
+    
+    private fun showDialog() {
+        ConfirmationCustomDialog().show(childFragmentManager,"Custom dialog")
     }
 }
