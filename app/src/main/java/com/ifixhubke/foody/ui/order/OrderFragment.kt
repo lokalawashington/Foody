@@ -51,12 +51,14 @@ class OrderFragment : Fragment() {
         }
         binding.orderFoodBtn.setOnClickListener {
             showDialog()
-
         }
+
+
         return view
     }
-    
+
     private fun showDialog() {
         ConfirmationCustomDialog().show(childFragmentManager,"Custom dialog")
     }
+
 }
