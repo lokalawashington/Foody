@@ -6,12 +6,14 @@ import android.os.Parcelable
 data class Order(
     val numberOfOrders: Int?,
     val tableNumber: String?,
-    val orderAmount: Int?
+    val orderAmount: Int?,
+    val foodName: String?
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readValue(Int::class.java.classLoader) as? Int,
         parcel.readString(),
-        parcel.readValue(Int::class.java.classLoader) as? Int
+        parcel.readValue(Int::class.java.classLoader) as? Int,
+        parcel.readString()
     ) {
     }
 
@@ -19,6 +21,7 @@ data class Order(
         parcel.writeValue(numberOfOrders)
         parcel.writeString(tableNumber)
         parcel.writeValue(orderAmount)
+        parcel.writeString(foodName)
     }
 
     override fun describeContents(): Int {

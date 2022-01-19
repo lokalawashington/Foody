@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.ifixhubke.foody.databinding.FragmentOrderBinding
+import com.ifixhubke.foody.models.Order
 
 
 class OrderFragment : Fragment() {
     private lateinit var button: Button
+    private lateinit var order: Order
     private lateinit var binding : FragmentOrderBinding
     private var tableNo = 1
     private var foodQuantity = 1
@@ -23,6 +26,7 @@ class OrderFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentOrderBinding.inflate(inflater, container, false)
         val view = binding.root
+
 
         binding.orderFoodTableNumberMinus.setOnClickListener {
            if(tableNo > 1)
@@ -50,7 +54,15 @@ class OrderFragment : Fragment() {
             binding.orderFoodQuantity.text = toStr.toString()
         }
         binding.orderFoodBtn.setOnClickListener {
-            showDialog()
+//            val bundle = Bundle().apply {
+//                putSerializable("order",)
+//            }
+
+//            showDialog()
+            order = Order(foodQuantity,tableNo.toString(),foodQuantity, binding.orderFoodName.text.toString())
+
+            val action = OrderFragmentDirections.actionOrderFragmentToConfirmationCustomDialog(order)
+            findNavController().navigate(action)
         }
 
 
