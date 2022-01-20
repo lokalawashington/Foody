@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.ifixhubke.foody.databinding.FragmentOrderBinding
 import com.ifixhubke.foody.models.Order
 
@@ -17,6 +19,7 @@ class OrderFragment : Fragment() {
     private lateinit var binding : FragmentOrderBinding
     private var tableNo = 1
     private var foodQuantity = 1
+    private val args: OrderFragmentArgs by navArgs()
 
 
     override fun onCreateView(
@@ -26,6 +29,20 @@ class OrderFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentOrderBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        val food_order = args.foodOrder
+
+        binding.orderFoodName.text = food_order.menuName.toString()
+
+        binding.orderFoodBtn.text = food_order.menuPrice.toString()
+
+        Glide.with(binding.orderFoodPic)
+            .load(food_order.menuImage)
+            .into(binding.orderFoodPic)
+
+        Glide.with(binding.orderHotelPic)
+            .load(args.hotelDet.hotelImage)
+            .into(binding.orderHotelPic)
 
 
         binding.orderFoodTableNumberMinus.setOnClickListener {
@@ -59,7 +76,7 @@ class OrderFragment : Fragment() {
 //            }
 
 //            showDialog()
-            order = Order(foodQuantity,tableNo.toString(),foodQuantity, binding.orderFoodName.text.toString())
+            order = Order(foodQuantity,tableNo.toString(),foodQuantity, food_order.menuName.toString())
 
             val action = OrderFragmentDirections.actionOrderFragmentToConfirmationCustomDialog(order)
             findNavController().navigate(action)

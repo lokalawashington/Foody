@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.firebase.database.*
 import com.ifixhubke.foody.adapters.MenuAdapter
@@ -24,6 +25,8 @@ class MenuFragment : Fragment() {
         MenuAdapter(MenuAdapter.OnClickListener {item ->
 
             Toast.makeText(requireContext(), "${item.menuName}", Toast.LENGTH_SHORT).show()
+            val action = MenuFragmentDirections.actionMenuFragmentToOrderFragment(item,args.hotelargs)
+            findNavController().navigate(action)
 
         })
     }

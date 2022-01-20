@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/orderFragment">
+    app:startDestination="@id/dashboardFragment">
 
     <fragment
         android:id="@+id/splashFragment"
@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
@@ -44,6 +47,9 @@
         <argument
             android:name="hotelargs"
             app:argType="com.ifixhubke.foody.models.HotelModels" />
+        <action
+            android:id="@+id/action_menuFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
     </fragment>
     <fragment
         android:id="@+id/orderFragment"
@@ -53,6 +59,12 @@
         <action
             android:id="@+id/action_orderFragment_to_confirmationCustomDialog"
             app:destination="@id/confirmationCustomDialog" />
+        <argument
+            android:name="food_order"
+            app:argType="com.ifixhubke.foody.models.MenuItems" />
+        <argument
+            android:name="hotel_det"
+            app:argType="com.ifixhubke.foody.models.HotelModels" />
     </fragment>
     <fragment
         android:id="@+id/confirmationCustomDialog"
