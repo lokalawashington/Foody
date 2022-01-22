@@ -1,5 +1,6 @@
 package com.ifixhubke.foody.models
 
+
 data class Food(
     val id: Int?,
     val foodImage: String?,
