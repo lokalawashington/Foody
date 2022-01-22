@@ -17,8 +17,24 @@ class SplashFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_splash, container, false)
+        val view = inflater.inflate(R.layout.fragment_splash, container, false)
 
+        Handler().postDelayed({
+            if (onBoardingFinished()){
+                findNavController().navigate(R.id.action_splashFragment_to_dashboardFragment)
+            }else{
+                findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
+            }
+        }, 2000)
+
+        return view
+    }
+
+    private fun onBoardingFinished(): Boolean {
+        val sharePreferences =
+            requireContext().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        return sharePreferences.getBoolean("Finished", false)
     }
 }
+
+
