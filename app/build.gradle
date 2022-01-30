@@ -89,10 +89,13 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     //check internet
-    implementation 'com.github.MosesWangira:moses.altruism.network:v1.0.3'
-    implementation "androidx.core:core-ktx:+"
+/*    implementation 'com.github.MosesWangira:moses.altruism.network:v1.0.3'
+    implementation "androidx.core:core-ktx:+"*/
     //implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // Hover SDK
     implementation 'com.hover:android-sdk:1.7.2'
+
+    //Shimmer Effect
+    implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
 }

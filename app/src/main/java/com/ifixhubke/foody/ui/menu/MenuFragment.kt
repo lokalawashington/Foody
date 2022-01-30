@@ -41,7 +41,9 @@ class MenuFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_menu, container, false)
         binding = FragmentMenuBinding.inflate(inflater, container, false)
         val view = binding.root
-        Log.d(TAG, "onCreateView: ${args.hotelargs.hotelMenu}")
+
+        binding.menuRecycler.showShimmerAdapter()
+
         databaseReference = FirebaseDatabase.getInstance().reference
 
         databaseReference.child("menus").child(args.hotelargs.hotelName.toString())
@@ -60,6 +62,7 @@ class MenuFragment : Fragment() {
                         }
                         menuAdapter.submitList(menuArrayList)
                         binding.menuRecycler.adapter = menuAdapter
+                        binding.menuRecycler.hideShimmerAdapter()
                     } else {
                         Toast.makeText(
                             requireContext(),

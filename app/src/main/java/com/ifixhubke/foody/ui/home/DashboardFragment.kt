@@ -39,8 +39,11 @@ class DashboardFragment : Fragment() {
         binding = FragmentDashboardBinding.inflate(layoutInflater, container, false)
         databaseReference = FirebaseDatabase.getInstance().reference
 
+        binding.hotelRecycler.showShimmerAdapter()
+        binding.nearByHotelRecycler.showShimmerAdapter()
+        binding.otherHotelRecycler.showShimmerAdapter()
 
-        binding.searchHotel.addTextChangedListener(object:TextWatcher{
+        binding.searchHt.addTextChangedListener(object:TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(editable: Editable?) {filter(editable.toString())
@@ -81,6 +84,8 @@ class DashboardFragment : Fragment() {
                         }
                         hotelAdopter.submitList(hotelArrayList)
                         binding.hotelRecycler.adapter = hotelAdopter
+                        binding.hotelRecycler.hideShimmerAdapter()
+
                     } else {
                         Toast.makeText(requireContext(), "Data Does not Exist", Toast.LENGTH_SHORT)
                             .show()
@@ -104,6 +109,7 @@ class DashboardFragment : Fragment() {
                         }
                         nearHotelAdopter.submitList(nearhotelArrayList)
                         binding.nearByHotelRecycler.adapter = nearHotelAdopter
+                        binding.nearByHotelRecycler.hideShimmerAdapter()
                     } else {
                         Toast.makeText(requireContext(), "Data Does not exist", Toast.LENGTH_SHORT)
                             .show()
@@ -128,6 +134,7 @@ class DashboardFragment : Fragment() {
                         }
                         otherHotelAdapter.submitList(otherHotelArrayList)
                         binding.otherHotelRecycler.adapter = otherHotelAdapter
+                        binding.otherHotelRecycler.hideShimmerAdapter()
                     } else {
                         Toast.makeText(requireContext(), "Data Does not exist", Toast.LENGTH_SHORT)
                             .show()

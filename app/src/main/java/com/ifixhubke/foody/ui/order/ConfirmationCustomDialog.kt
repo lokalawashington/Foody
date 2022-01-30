@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.hover.sdk.api.HoverParameters
 import com.ifixhubke.foody.R
 import com.ifixhubke.foody.databinding.FragmentConfirmationCustomDialogBinding
@@ -21,7 +22,7 @@ import timber.log.Timber
 
 private const val TAG = "ConfirmationCustomDialog"
 
-class ConfirmationCustomDialog() : DialogFragment(R.layout.fragment_confirmation_custom_dialog) {
+class ConfirmationCustomDialog() : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentConfirmationCustomDialogBinding
     private lateinit var textView: TextView
     private lateinit var tableNumber: String

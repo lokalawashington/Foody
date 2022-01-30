@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.ifixhubke.foody.R
 import com.ifixhubke.foody.databinding.FragmentOrderBinding
 import com.ifixhubke.foody.models.Order
 
@@ -88,6 +89,10 @@ class OrderFragment : Fragment() {
 
     private fun showDialog() {
         ConfirmationCustomDialog().show(childFragmentManager,"Custom dialog")
+    }
+
+    private fun setTarget() {
+        findNavController().navigate(R.id.action_orderFragment_to_confirmationCustomDialog)
     }
 
 }

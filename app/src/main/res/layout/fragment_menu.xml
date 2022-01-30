@@ -75,7 +75,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewPopularFood" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.cooltechworks.views.shimmer.ShimmerRecyclerView
         android:id="@+id/menu_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -84,6 +84,13 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:orientation="vertical"
+        android:scrollbars="none"
+        app:shimmer_demo_angle="20"
+        app:shimmer_demo_child_count="10"
+        app:shimmer_demo_grid_child_count="2"
+        app:shimmer_demo_layout="@layout/vertical_shimmer_layout"
+        app:shimmer_demo_layout_manager_type="linear_vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

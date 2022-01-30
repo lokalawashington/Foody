@@ -3,49 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="200dp"
-    android:layout_height="wrap_content"
+    android:layout_height="180dp"
     android:layout_margin="5dp"
     app:cardCornerRadius="10dp"
     app:cardElevation="8dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/hotelImage"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_centerHorizontal="true"
-            android:adjustViewBounds="true"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/hotel_sample" />
+            app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/hotelName"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_alignParentBottom="true"
+            android:background="#7000"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
             android:ellipsize="end"
-            android:gravity="center_horizontal"
             android:maxLines="1"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textColor="#FFF"
+            android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/hotelImage"
-            app:layout_constraintStart_toStartOf="@+id/hotelImage"
-            app:layout_constraintTop_toBottomOf="@+id/hotelImage"
-            tools:text="Food Palace Hotel" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+            tools:text="White House Hotel Near School Gate" />
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>
